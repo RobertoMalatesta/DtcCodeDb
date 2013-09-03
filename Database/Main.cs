@@ -17,16 +17,19 @@ namespace Database
     {
         DtcCodeRepository AutotRepository;
 
+        string Model { get { return modelsListbox.SelectedItem.ToString(); }        }
+        string Manufacturer { get { return manufacturersListBox.SelectedItem.ToString(); } }
+        string Dtc { get { return dtcListbox.SelectedItem.ToString(); } }
+        string Engine { get { return engineListbox.SelectedItem.ToString(); } }
+
         public Main()
         {
             InitializeComponent();
             AutotRepository = new DtcCodeRepository();
-
             autotGridView.DataSource = AutotRepository.DtcCodes;
-
             AutotRepository.DtcCodes.CollectionChanged += Cars_CollectionChanged;
             autotListBox.DataSource = AutotRepository.DtcCodes;
-
+            autotListBox.DisplayMember = "Manufacturer";
             manufacturersListBox.DataSource = AutotRepository.Manufacturers;
         }
 
@@ -37,7 +40,7 @@ namespace Database
 
             autotListBox.DataSource = null;
             autotListBox.DataSource = AutotRepository.DtcCodes;
-
+            autotListBox.DisplayMember = "Manufacturer";
         }
 
         private void lisääToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,7 +52,6 @@ namespace Database
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void autotListBox_KeyDown(object sender, KeyEventArgs e)
@@ -58,31 +60,35 @@ namespace Database
                 AutotRepository.DtcCodes.Remove(autotListBox.SelectedItem as DtcCodeObject);
         }
 
+        #region ListBox Suodatus
+
+        // manufacturersListBox
         private void manufacturersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (manufacturersListBox.SelectedItem != null)
             {
-                string Manufacturer = manufacturersListBox.SelectedItem.ToString();
                 var uusilista = AutotRepository.DtcCodes.Where(c => c.Manufacturer == Manufacturer);
                 var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
 
                 ObservableCollection<string> models = new ObservableCollection<string>();
                 foreach (DtcCodeObject dtc in suodatettulista)
                 {
+                    if (!models.Contains(dtc.Model))
+                        models.Add(dtc.Model);
                 }
 
                 modelsListbox.DataSource = null;
-                modelsListbox.DataSource = suodatettulista;
-                modelsListbox.DisplayMember = "Model";
+                modelsListbox.DataSource = models;
             }
         }
 
+        // modelsListBox
         private void modelsListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (modelsListbox.SelectedItem != null)
             {
-                var dtc = modelsListbox.SelectedItem as DtcCodeObject;
-                var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == dtc.Model && c.Manufacturer == dtc.Manufacturer);
+                string model = modelsListbox.SelectedItem.ToString();
+                var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == Model && c.Manufacturer == Manufacturer);
                 var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
 
                 engineListbox.DataSource = null;
@@ -91,6 +97,7 @@ namespace Database
             }
         }
 
+        //engineListBox
         private void engineListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (engineListbox.SelectedItem != null)
@@ -104,5 +111,7 @@ namespace Database
                 dtcListbox.DisplayMember = "DTC";
             }
         }
+
+        #endregion // ListBox Suodatus
     }
 }
