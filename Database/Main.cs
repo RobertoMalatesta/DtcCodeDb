@@ -15,33 +15,34 @@ namespace Database
 {
     public partial class Main : Form
     {
+        // Fields
         DtcCodeRepository AutotRepository;
-
         string Model { get { return modelsListbox.SelectedItem.ToString(); }        }
         string Manufacturer { get { return manufacturersListBox.SelectedItem.ToString(); } }
         string Dtc { get { return dtcListbox.SelectedItem.ToString(); } }
         string Engine { get { return engineListbox.SelectedItem.ToString(); } }
 
+        // Constructor
         public Main()
         {
+            // Alustetaan noi kaikki visuaaliset komponentit
             InitializeComponent();
+
+            // Alustetaan autot repository ja asetetaan handleri kokoelmalle
+            // Cars_CollectionChanged pitää muuttaa jossai välissä
             AutotRepository = new DtcCodeRepository();
-            autotGridView.DataSource = AutotRepository.DtcCodes;
             AutotRepository.DtcCodes.CollectionChanged += Cars_CollectionChanged;
-            autotListBox.DataSource = AutotRepository.DtcCodes;
-            autotListBox.DisplayMember = "Manufacturer";
+            
+            // Asetetaan valmistajien listboxille data lähde
             manufacturersListBox.DataSource = AutotRepository.Manufacturers;
-        }
 
-        void Cars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            autotGridView.DataSource = null;
-            autotGridView.DataSource = AutotRepository.DtcCodes;
-
-            autotListBox.DataSource = null;
+            /// Alla olevat poistetaan jossain vaiheessa
             autotListBox.DataSource = AutotRepository.DtcCodes;
             autotListBox.DisplayMember = "Manufacturer";
+            autotGridView.DataSource = AutotRepository.DtcCodes;
         }
+
+        
 
         private void lisääToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -54,6 +55,7 @@ namespace Database
             this.Close();
         }
 
+        // Väliaikainen autotlistbox Delete toiminto
         private void autotListBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -65,20 +67,10 @@ namespace Database
         // manufacturersListBox
         private void manufacturersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (manufacturersListBox.SelectedItem != null)
+            if (Manufacturer != null)
             {
-                var uusilista = AutotRepository.DtcCodes.Where(c => c.Manufacturer == Manufacturer);
-                var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
-
-                ObservableCollection<string> models = new ObservableCollection<string>();
-                foreach (DtcCodeObject dtc in suodatettulista)
-                {
-                    if (!models.Contains(dtc.Model))
-                        models.Add(dtc.Model);
-                }
-
                 modelsListbox.DataSource = null;
-                modelsListbox.DataSource = models;
+                modelsListbox.DataSource = AutotRepository.Models(Manufacturer);
             }
         }
 
@@ -87,13 +79,8 @@ namespace Database
         {
             if (modelsListbox.SelectedItem != null)
             {
-                string model = modelsListbox.SelectedItem.ToString();
-                var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == Model && c.Manufacturer == Manufacturer);
-                var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
-
                 engineListbox.DataSource = null;
-                engineListbox.DataSource = suodatettulista;
-                engineListbox.DisplayMember = "Engine";
+                engineListbox.DataSource = AutotRepository.Engines(Model);
             }
         }
 
@@ -102,16 +89,25 @@ namespace Database
         {
             if (engineListbox.SelectedItem != null)
             {
-                var dtc = engineListbox.SelectedItem as DtcCodeObject;
-                var uusilista = AutotRepository.DtcCodes.Where(c => c.Engine == dtc.Engine && c.Model == dtc.Model);
-                var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
-
                 dtcListbox.DataSource = null;
-                dtcListbox.DataSource = suodatettulista;
-                dtcListbox.DisplayMember = "DTC";
+                dtcListbox.DataSource = AutotRepository.DTC(Model, Engine);
             }
         }
 
         #endregion // ListBox Suodatus
+
+        #region Event Handlerit
+
+        void Cars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            autotGridView.DataSource = null;
+            autotGridView.DataSource = AutotRepository.DtcCodes;
+
+            autotListBox.DataSource = null;
+            autotListBox.DataSource = AutotRepository.DtcCodes;
+            autotListBox.DisplayMember = "Manufacturer";
+        }
+
+        #endregion // Event Handlerit
     }
 }
