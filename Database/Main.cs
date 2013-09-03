@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Backend.Repositories;
 using Backend.Objects;
 using System.Collections.ObjectModel;
-//iso pylly
+
 namespace Database
 {
     public partial class Main : Form
