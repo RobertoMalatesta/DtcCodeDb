@@ -11,6 +11,11 @@ namespace Backend.XmlTools
     {
         #region Public
 
+        /// <summary>
+        /// Tallennetaan DtcCodeObjects kokoelma XML tiedostoon
+        /// </summary>
+        /// <param name="DtcCodes">DtcCodeObject kokoelma</param>
+        /// <returns>Palauttaa TRUE arvon jos tallennus onnistuu</returns>
         static public bool SerializeDtcCodes(ObservableCollection<DtcCodeObject> DtcCodes)
         {
             var xmlSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
@@ -20,6 +25,10 @@ namespace Backend.XmlTools
             return false;
         }
 
+        /// <summary>
+        /// Luetaan DtcCodeObject kokoelma XML tiedostosta
+        /// </summary>
+        /// <returns>DtcCodeObject kokoelma</returns>
         static public ObservableCollection<DtcCodeObject> DeserializeDtcCodes()
         {
             var deSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
@@ -51,12 +60,17 @@ namespace Backend.XmlTools
 
         #region Private Helpers
 
+        /// <summary>
+        /// Tarkistetaan onko XML tiedosto olemassa ja generoidaan DtcCodeObject kokoelma tiedosto
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         static bool FileCheck(string file)
         {
             if (!File.Exists(file))
                 try
                 {
-                    File.Create(file);
+                    GenerateNewDtcCodes();
                 }
                 catch (Exception Ex)
                 {
@@ -66,6 +80,13 @@ namespace Backend.XmlTools
             return true;
         }
 
+        /// <summary>
+        /// Xml Tiedostoon kirjoitus
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="xmlSerializer"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         static bool WriteXmlFile(string file, XmlSerializer xmlSerializer, object obj)
         {
             if (FileCheck(file))
@@ -90,6 +111,10 @@ namespace Backend.XmlTools
             
         }
 
+        /// <summary>
+        /// Generoidaan uusi DtcCodeObject kokoelma ja tallennetaan se tiedostoon. 
+        /// </summary>
+        /// <returns>Palauttaa TRUE jos onnistuu</returns>
         static bool GenerateNewDtcCodes()
         {
             ObservableCollection<DtcCodeObject> DtcCodes = new ObservableCollection<DtcCodeObject>();
