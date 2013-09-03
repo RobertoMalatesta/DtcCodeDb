@@ -60,22 +60,28 @@ namespace Database
 
         private void manufacturersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var uusilista = AutotRepository.DtcCodes.Where(c => c.Manufacturer == manufacturersListBox.SelectedItem.ToString());
-            var tes = new ObservableCollection<DtcCodeObject>(uusilista);
+            if (manufacturersListBox.SelectedItem != null)
+            {
+                var uusilista = AutotRepository.DtcCodes.Where(c => c.Manufacturer == manufacturersListBox.SelectedItem.ToString());
+                var tes = new ObservableCollection<DtcCodeObject>(uusilista);
 
-            modelsListbox.DataSource = null;
-            modelsListbox.DataSource = tes;
-            modelsListbox.DisplayMember = "Model";
+                modelsListbox.DataSource = null;
+                modelsListbox.DataSource = tes;
+                modelsListbox.DisplayMember = "Model";
+            }
         }
 
         private void modelsListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == modelsListbox.SelectedItem.ToString());
-            var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
+            if (modelsListbox.SelectedItem != null)
+            {
+                var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == modelsListbox.SelectedItem.ToString());
+                var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
 
-            engineListbox.DataSource = null;
-            engineListbox.DataSource = suodatettulista;
-            engineListbox.DisplayMember = "Engine";
+                engineListbox.DataSource = null;
+                engineListbox.DataSource = suodatettulista;
+                engineListbox.DisplayMember = "Engine";
+            }
         }
     }
 }
