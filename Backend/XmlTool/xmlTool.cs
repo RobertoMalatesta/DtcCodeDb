@@ -11,6 +11,11 @@ namespace Backend.XmlTools
     {
         #region Public
 
+        /// <summary>
+        /// Serialisoi DtcCodeObject kokoelman XML tiedostoon
+        /// </summary>
+        /// <param name="DtcCodes">DtcCodeObject kokoelma mikä halutaan tallentaa</param>
+        /// <returns></returns>
         static public bool SerializeDtcCodes(ObservableCollection<DtcCodeObject> DtcCodes)
         {
             var xmlSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
@@ -20,6 +25,10 @@ namespace Backend.XmlTools
             return false;
         }
 
+        /// <summary>
+        /// Ladataan DtcCodeObject kokoelma XML tiedostosta
+        /// </summary>
+        /// <returns>Palauttaa DtcCodeObject kokoelman</returns>
         static public ObservableCollection<DtcCodeObject> DeserializeDtcCodes()
         {
             var deSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
@@ -51,12 +60,17 @@ namespace Backend.XmlTools
 
         #region Private Helpers
 
+        /// <summary>
+        /// Tarkistetaan onko tiedostoa olemassa. Jos ei niin generoidaan uusi
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         static bool FileCheck(string file)
         {
             if (!File.Exists(file))
                 try
                 {
-                    File.Create(file);
+                    GenerateNewDtcCodes();
                 }
                 catch (Exception Ex)
                 {
