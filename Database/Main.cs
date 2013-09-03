@@ -70,14 +70,12 @@ namespace Database
 
         private void modelsListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            var uusilista = AutotRepository.Cars.Where(c => c.Model == modelsListbox.SelectedItem.ToString());
-            var suodatettulista = new ObservableCollection<CarObject>(uusilista);
+            var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == modelsListbox.SelectedItem.ToString());
+            var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
 
-            modelsListbox.DataSource = null;
-            modelsListbox.DataSource = suodatettulista;
-            modelsListbox.DisplayMember = "Model";
-            */
+            engineListbox.DataSource = null;
+            engineListbox.DataSource = suodatettulista;
+            engineListbox.DisplayMember = "Engine";
         }
     }
 }
