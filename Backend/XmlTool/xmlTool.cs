@@ -81,7 +81,6 @@ namespace Backend.XmlTools
                 catch (Exception ex)
                 {
                     throw new ArgumentException("Error while writing XML file!" + ex);
-                    return false;
                 }
 
                 return true;
