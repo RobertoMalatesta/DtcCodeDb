@@ -62,11 +62,17 @@ namespace Database
         {
             if (manufacturersListBox.SelectedItem != null)
             {
-                var uusilista = AutotRepository.DtcCodes.Where(c => c.Manufacturer == manufacturersListBox.SelectedItem.ToString());
-                var tes = new ObservableCollection<DtcCodeObject>(uusilista);
+                string Manufacturer = manufacturersListBox.SelectedItem.ToString();
+                var uusilista = AutotRepository.DtcCodes.Where(c => c.Manufacturer == Manufacturer);
+                var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
+
+                ObservableCollection<string> models = new ObservableCollection<string>();
+                foreach (DtcCodeObject dtc in suodatettulista)
+                {
+                }
 
                 modelsListbox.DataSource = null;
-                modelsListbox.DataSource = tes;
+                modelsListbox.DataSource = suodatettulista;
                 modelsListbox.DisplayMember = "Model";
             }
         }
@@ -75,12 +81,27 @@ namespace Database
         {
             if (modelsListbox.SelectedItem != null)
             {
-                var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == modelsListbox.SelectedItem.ToString());
+                var dtc = modelsListbox.SelectedItem as DtcCodeObject;
+                var uusilista = AutotRepository.DtcCodes.Where(c => c.Model == dtc.Model && c.Manufacturer == dtc.Manufacturer);
                 var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
 
                 engineListbox.DataSource = null;
                 engineListbox.DataSource = suodatettulista;
                 engineListbox.DisplayMember = "Engine";
+            }
+        }
+
+        private void engineListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (engineListbox.SelectedItem != null)
+            {
+                var dtc = engineListbox.SelectedItem as DtcCodeObject;
+                var uusilista = AutotRepository.DtcCodes.Where(c => c.Engine == dtc.Engine && c.Model == dtc.Model);
+                var suodatettulista = new ObservableCollection<DtcCodeObject>(uusilista);
+
+                dtcListbox.DataSource = null;
+                dtcListbox.DataSource = suodatettulista;
+                dtcListbox.DisplayMember = "DTC";
             }
         }
     }

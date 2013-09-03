@@ -46,6 +46,10 @@
             this.modelsListbox = new System.Windows.Forms.ListBox();
             this.engineListbox = new System.Windows.Forms.ListBox();
             this.dtcListbox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.AutotGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
@@ -74,14 +78,14 @@
             // lisääToolStripMenuItem
             // 
             this.lisääToolStripMenuItem.Name = "lisääToolStripMenuItem";
-            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.lisääToolStripMenuItem.Text = "Lisää";
             this.lisääToolStripMenuItem.Click += new System.EventHandler(this.lisääToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -161,9 +165,9 @@
             this.manufacturersListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manufacturersListBox.FormattingEnabled = true;
             this.manufacturersListBox.ItemHeight = 20;
-            this.manufacturersListBox.Location = new System.Drawing.Point(15, 27);
+            this.manufacturersListBox.Location = new System.Drawing.Point(15, 67);
             this.manufacturersListBox.Name = "manufacturersListBox";
-            this.manufacturersListBox.Size = new System.Drawing.Size(148, 224);
+            this.manufacturersListBox.Size = new System.Drawing.Size(148, 184);
             this.manufacturersListBox.TabIndex = 2;
             this.manufacturersListBox.SelectedIndexChanged += new System.EventHandler(this.manufacturersListBox_SelectedIndexChanged);
             // 
@@ -173,9 +177,9 @@
             this.modelsListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modelsListbox.FormattingEnabled = true;
             this.modelsListbox.ItemHeight = 20;
-            this.modelsListbox.Location = new System.Drawing.Point(169, 27);
+            this.modelsListbox.Location = new System.Drawing.Point(169, 67);
             this.modelsListbox.Name = "modelsListbox";
-            this.modelsListbox.Size = new System.Drawing.Size(148, 224);
+            this.modelsListbox.Size = new System.Drawing.Size(148, 184);
             this.modelsListbox.TabIndex = 3;
             this.modelsListbox.SelectedIndexChanged += new System.EventHandler(this.modelsListbox_SelectedIndexChanged);
             // 
@@ -184,26 +188,67 @@
             this.engineListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.engineListbox.FormattingEnabled = true;
             this.engineListbox.ItemHeight = 20;
-            this.engineListbox.Location = new System.Drawing.Point(324, 28);
+            this.engineListbox.Location = new System.Drawing.Point(324, 68);
             this.engineListbox.Name = "engineListbox";
-            this.engineListbox.Size = new System.Drawing.Size(148, 224);
+            this.engineListbox.Size = new System.Drawing.Size(148, 184);
             this.engineListbox.TabIndex = 4;
+            this.engineListbox.SelectedIndexChanged += new System.EventHandler(this.engineListbox_SelectedIndexChanged);
             // 
             // dtcListbox
             // 
             this.dtcListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtcListbox.FormattingEnabled = true;
             this.dtcListbox.ItemHeight = 20;
-            this.dtcListbox.Location = new System.Drawing.Point(479, 28);
+            this.dtcListbox.Location = new System.Drawing.Point(479, 68);
             this.dtcListbox.Name = "dtcListbox";
-            this.dtcListbox.Size = new System.Drawing.Size(263, 224);
+            this.dtcListbox.Size = new System.Drawing.Size(263, 184);
             this.dtcListbox.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Valmistaja :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(166, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Malli :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(321, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Moottori :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(476, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "DTC :";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 521);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtcListbox);
             this.Controls.Add(this.engineListbox);
             this.Controls.Add(this.modelsListbox);
@@ -242,5 +287,9 @@
         private System.Windows.Forms.ListBox modelsListbox;
         private System.Windows.Forms.ListBox engineListbox;
         private System.Windows.Forms.ListBox dtcListbox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
