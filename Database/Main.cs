@@ -108,5 +108,14 @@ namespace Database
         }
 
         #endregion // Event Handlerit
-    }
-}
+
+        //Marko da codeing master of the universum. 
+        private void dtcListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dtcListbox.SelectedItem != null)
+            {
+                textbox.DataSource = null;
+                textbox.DataSource = AutotRepository.description;
+            }
+        }
+} // antaa errorin... missä viga

@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tiedostotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lisääToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutotGroupBox = new System.Windows.Forms.GroupBox();
             this.autotListBox = new System.Windows.Forms.ListBox();
@@ -45,14 +46,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textbox = new System.Windows.Forms.TextBox();
-            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.AutotGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
@@ -85,6 +85,12 @@
             this.lisääToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.lisääToolStripMenuItem.Text = "Lisää";
             this.lisääToolStripMenuItem.Click += new System.EventHandler(this.lisääToolStripMenuItem_Click);
+            // 
+            // muokkaaToolStripMenuItem
+            // 
+            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
+            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
             // 
             // exitToolStripMenuItem
             // 
@@ -173,6 +179,7 @@
             this.dtcListbox.Name = "dtcListbox";
             this.dtcListbox.Size = new System.Drawing.Size(263, 184);
             this.dtcListbox.TabIndex = 5;
+            this.dtcListbox.SelectedIndexChanged += new System.EventHandler(this.dtcListbox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -223,12 +230,6 @@
             this.textbox.Size = new System.Drawing.Size(376, 184);
             this.textbox.TabIndex = 7;
             // 
-            // muokkaaToolStripMenuItem
-            // 
-            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
-            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
-            // 
             // DescriptionLabel
             // 
             this.DescriptionLabel.AutoSize = true;
@@ -237,6 +238,10 @@
             this.DescriptionLabel.Size = new System.Drawing.Size(63, 13);
             this.DescriptionLabel.TabIndex = 8;
             this.DescriptionLabel.Text = "Description:";
+            // 
+            // carObjectBindingSource
+            // 
+            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // manufacturerDataGridViewTextBoxColumn
             // 
@@ -267,10 +272,6 @@
             this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
             this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
             this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            // 
-            // carObjectBindingSource
-            // 
-            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // Main
             // 
