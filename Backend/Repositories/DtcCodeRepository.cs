@@ -23,6 +23,7 @@ namespace Backend.Repositories
             // Lisätään EventHandler
             DtcCodes.CollectionChanged += Cars_CollectionChanged;
 
+            // ööh... tän vois ehkä jossai vaiheessa tehdä fiksummin
             ManufacturerParser();
         }
 
