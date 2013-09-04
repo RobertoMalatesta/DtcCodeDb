@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Backend.Objects
 {
     public class DtcCodeObject
     {
-        public string Manufacturer { get; set; }
-        public string Model { get; set; }
-        public string Engine { get; set; }
-        public string DTC { get; set; }
-        public int Year { get; set; }
+        public string Manufacturer { get; set; } // Valmistaja
+        public string Model { get; set; } // Malli
+        public string Engine { get; set; }  // Moottori
+        public string DTC { get; set; } // DTC
+        public string Description { get; set; } // Kuvaus
+        public int Year { get; set; } // Vuosimalli
+
+        public ObservableCollection<Document> Documents { get; set; } // Documents
     }
 }

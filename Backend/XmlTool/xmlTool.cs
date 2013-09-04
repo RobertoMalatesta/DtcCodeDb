@@ -11,21 +11,38 @@ namespace Backend.XmlTools
     {
         #region Public
 
+        /// <summary>
+        /// Tallennetaan DtcCodeObjects kokoelma XML tiedostoon
+        /// </summary>
+        /// <param name="DtcCodes">DtcCodeObject kokoelma</param>
+        /// <returns>Palauttaa TRUE arvon jos tallennus onnistuu</returns>
         static public bool SerializeDtcCodes(ObservableCollection<DtcCodeObject> DtcCodes)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
-            if (WriteXmlFile("dtccodes.xml", xmlSerializer, DtcCodes))
-                return true;
+
+                try
+                {
+                    var xmlSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
+                    if (WriteXmlFile("dtccodes.xml", xmlSerializer, DtcCodes))
+                        return true;
+                }
+                catch (Exception Ex)
+                {
+                    throw new ArgumentException("Error in serialization");
+                }
 
             return false;
         }
 
+        /// <summary>
+        /// Luetaan DtcCodeObject kokoelma XML tiedostosta
+        /// </summary>
+        /// <returns>DtcCodeObject kokoelma</returns>
         static public ObservableCollection<DtcCodeObject> DeserializeDtcCodes()
         {
             var deSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
             ObservableCollection<DtcCodeObject> Projects = new ObservableCollection<DtcCodeObject>();
 
-            if (File.Exists("dtccodes.xml"))
+            if (FileCheck("dtccodes.xml"))
             {
                 try
                 {
@@ -51,12 +68,17 @@ namespace Backend.XmlTools
 
         #region Private Helpers
 
+        /// <summary>
+        /// Tarkistetaan onko XML tiedosto olemassa ja generoidaan DtcCodeObject kokoelma tiedosto
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         static bool FileCheck(string file)
         {
-            if (!File.Exists(file))
+            if (!File.Exists(file)) // Auton lisäys aiheuttaa häriöö ja vika ilmeisesti tässä?
                 try
                 {
-                    File.Create(file);
+                    GenerateNewDtcCodes();
                 }
                 catch (Exception Ex)
                 {
@@ -66,10 +88,15 @@ namespace Backend.XmlTools
             return true;
         }
 
+        /// <summary>
+        /// Xml Tiedostoon kirjoitus
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="xmlSerializer"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         static bool WriteXmlFile(string file, XmlSerializer xmlSerializer, object obj)
         {
-            if (FileCheck(file))
-            {
                 try
                 {
                     using (TextWriter textWriter = new StreamWriter(file))
@@ -84,12 +111,13 @@ namespace Backend.XmlTools
                 }
 
                 return true;
-            }
-
-            return false;
             
         }
 
+        /// <summary>
+        /// Generoidaan uusi DtcCodeObject kokoelma ja tallennetaan se tiedostoon. 
+        /// </summary>
+        /// <returns>Palauttaa TRUE jos onnistuu</returns>
         static bool GenerateNewDtcCodes()
         {
             ObservableCollection<DtcCodeObject> DtcCodes = new ObservableCollection<DtcCodeObject>();
