@@ -115,7 +115,8 @@ namespace Database
             if (dtcListbox.SelectedItem != null)
             {
                 textbox.DataSource = null;
-                textbox.DataSource = AutotRepository.description;
+                textbox.DataSource = AutotRepository.description(Model, Engine, Dtc);
             }
         }
-} // antaa errorin... missä viga
+    }
+}
