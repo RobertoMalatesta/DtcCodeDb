@@ -18,9 +18,17 @@ namespace Backend.XmlTools
         /// <returns>Palauttaa TRUE arvon jos tallennus onnistuu</returns>
         static public bool SerializeDtcCodes(ObservableCollection<DtcCodeObject> DtcCodes)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
-            if (WriteXmlFile("dtccodes.xml", xmlSerializer, DtcCodes))
-                return true;
+
+                try
+                {
+                    var xmlSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
+                    if (WriteXmlFile("dtccodes.xml", xmlSerializer, DtcCodes))
+                        return true;
+                }
+                catch (Exception Ex)
+                {
+                    throw new ArgumentException("Error in serialization");
+                }
 
             return false;
         }
@@ -34,7 +42,7 @@ namespace Backend.XmlTools
             var deSerializer = new XmlSerializer(typeof(ObservableCollection<DtcCodeObject>));
             ObservableCollection<DtcCodeObject> Projects = new ObservableCollection<DtcCodeObject>();
 
-            if (File.Exists("dtccodes.xml"))
+            if (FileCheck("dtccodes.xml"))
             {
                 try
                 {
@@ -89,8 +97,6 @@ namespace Backend.XmlTools
         /// <returns></returns>
         static bool WriteXmlFile(string file, XmlSerializer xmlSerializer, object obj)
         {
-            if (FileCheck(file))
-            {
                 try
                 {
                     using (TextWriter textWriter = new StreamWriter(file))
@@ -105,9 +111,6 @@ namespace Backend.XmlTools
                 }
 
                 return true;
-            }
-
-            return false;
             
         }
 
