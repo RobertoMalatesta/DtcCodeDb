@@ -47,12 +47,12 @@
             this.textbox = new System.Windows.Forms.TextBox();
             this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.AutotGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
@@ -213,6 +213,7 @@
             // textbox
             // 
             this.textbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carObjectBindingSource, "DTC", true));
             this.textbox.Enabled = false;
             this.textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textbox.Location = new System.Drawing.Point(749, 67);
@@ -236,10 +237,6 @@
             this.DescriptionLabel.Size = new System.Drawing.Size(63, 13);
             this.DescriptionLabel.TabIndex = 8;
             this.DescriptionLabel.Text = "Description:";
-            // 
-            // carObjectBindingSource
-            // 
-            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // manufacturerDataGridViewTextBoxColumn
             // 
@@ -270,6 +267,10 @@
             this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
             this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
             this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            // 
+            // carObjectBindingSource
+            // 
+            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // Main
             // 
