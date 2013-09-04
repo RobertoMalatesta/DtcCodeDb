@@ -93,7 +93,6 @@ namespace Database
                 dtcListbox.DataSource = AutotRepository.DTC(Model, Engine);
             }
         }
-
         #endregion // ListBox Suodatus
 
         #region Event Handlerit

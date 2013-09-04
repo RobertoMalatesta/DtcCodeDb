@@ -36,12 +36,6 @@
             this.AutotGroupBox = new System.Windows.Forms.GroupBox();
             this.autotListBox = new System.Windows.Forms.ListBox();
             this.autotGridView = new System.Windows.Forms.DataGridView();
-            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturersListBox = new System.Windows.Forms.ListBox();
             this.modelsListbox = new System.Windows.Forms.ListBox();
             this.engineListbox = new System.Windows.Forms.ListBox();
@@ -50,6 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.textbox = new System.Windows.Forms.TextBox();
+            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.AutotGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
@@ -70,6 +73,7 @@
             // 
             this.tiedostotToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lisääToolStripMenuItem,
+            this.muokkaaToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.tiedostotToolStripMenuItem.Name = "tiedostotToolStripMenuItem";
             this.tiedostotToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
@@ -78,14 +82,14 @@
             // lisääToolStripMenuItem
             // 
             this.lisääToolStripMenuItem.Name = "lisääToolStripMenuItem";
-            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.lisääToolStripMenuItem.Text = "Lisää";
             this.lisääToolStripMenuItem.Click += new System.EventHandler(this.lisääToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -125,40 +129,6 @@
             this.autotGridView.Name = "autotGridView";
             this.autotGridView.Size = new System.Drawing.Size(841, 150);
             this.autotGridView.TabIndex = 0;
-            // 
-            // manufacturerDataGridViewTextBoxColumn
-            // 
-            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            // 
-            // engineDataGridViewTextBoxColumn
-            // 
-            this.engineDataGridViewTextBoxColumn.DataPropertyName = "Engine";
-            this.engineDataGridViewTextBoxColumn.HeaderText = "Engine";
-            this.engineDataGridViewTextBoxColumn.Name = "engineDataGridViewTextBoxColumn";
-            // 
-            // dTCDataGridViewTextBoxColumn
-            // 
-            this.dTCDataGridViewTextBoxColumn.DataPropertyName = "DTC";
-            this.dTCDataGridViewTextBoxColumn.HeaderText = "DTC";
-            this.dTCDataGridViewTextBoxColumn.Name = "dTCDataGridViewTextBoxColumn";
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            // 
-            // carObjectBindingSource
-            // 
-            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // manufacturersListBox
             // 
@@ -240,11 +210,74 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "DTC :";
             // 
+            // textbox
+            // 
+            this.textbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textbox.Enabled = false;
+            this.textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox.Location = new System.Drawing.Point(749, 67);
+            this.textbox.Multiline = true;
+            this.textbox.Name = "textbox";
+            this.textbox.ReadOnly = true;
+            this.textbox.Size = new System.Drawing.Size(376, 184);
+            this.textbox.TabIndex = 7;
+            // 
+            // muokkaaToolStripMenuItem
+            // 
+            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
+            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
+            // 
+            // DescriptionLabel
+            // 
+            this.DescriptionLabel.AutoSize = true;
+            this.DescriptionLabel.Location = new System.Drawing.Point(748, 52);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(63, 13);
+            this.DescriptionLabel.TabIndex = 8;
+            this.DescriptionLabel.Text = "Description:";
+            // 
+            // carObjectBindingSource
+            // 
+            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            // 
+            // engineDataGridViewTextBoxColumn
+            // 
+            this.engineDataGridViewTextBoxColumn.DataPropertyName = "Engine";
+            this.engineDataGridViewTextBoxColumn.HeaderText = "Engine";
+            this.engineDataGridViewTextBoxColumn.Name = "engineDataGridViewTextBoxColumn";
+            // 
+            // dTCDataGridViewTextBoxColumn
+            // 
+            this.dTCDataGridViewTextBoxColumn.DataPropertyName = "DTC";
+            this.dTCDataGridViewTextBoxColumn.HeaderText = "DTC";
+            this.dTCDataGridViewTextBoxColumn.Name = "dTCDataGridViewTextBoxColumn";
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 521);
+            this.Controls.Add(this.DescriptionLabel);
+            this.Controls.Add(this.textbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -291,5 +324,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem muokkaaToolStripMenuItem;
+        private System.Windows.Forms.TextBox textbox;
+        private System.Windows.Forms.Label DescriptionLabel;
     }
 }

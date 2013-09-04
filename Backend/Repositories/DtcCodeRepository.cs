@@ -118,5 +118,10 @@ namespace Backend.Repositories
 
             return List;
         }
+
+        public object description(string Model, string Engine)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
