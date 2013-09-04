@@ -110,12 +110,16 @@ namespace Database
         #endregion // Event Handlerit
 
         //Marko da codeing master of the universum. 
+        // Feat. hC "R3l0aded" Hyttinen
         private void dtcListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dtcListbox.SelectedItem != null)
             {
-                textbox.DataSource = null;
-                textbox.DataSource = AutotRepository.description(Model, Engine, Dtc);
+                // Vaihtoehto(helpompi) : 
+                // textbox.Text = AutotRepository.description(Model, Engine, Dtc);
+
+                // Pidemmässä juoksussa parempi koska tätä voidaan hyödyntää vielä enemmän myöhemmin :
+                carObjectBindingSource.DataSource = AutotRepository.SingleCodeObject(Model, Engine, Dtc);
             }
         }
     }

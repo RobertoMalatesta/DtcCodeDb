@@ -37,6 +37,7 @@ namespace Database
                 Engine = EngineTextBox.Text, 
                 DTC = DtcTextBox.Text, 
                 Manufacturer = ManufacturerTextBox.Text,
+                Description = DescriptionTextBox.Text,
             };
 
             DtcRepository.DtcCodes.Add(uusiauto);

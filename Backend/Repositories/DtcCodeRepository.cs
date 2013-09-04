@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Backend.Objects;
 using Backend.XmlTools;
+using System.Linq;
 
 namespace Backend.Repositories
 {
@@ -119,9 +120,30 @@ namespace Backend.Repositories
             return List;
         }
 
-        public object description(string Model, string Engine)
+        /// <summary>
+        /// Palauttaa STRINGINÄ pelkän Descriptionin
+        /// </summary>
+        /// <param name="Model">Malli</param>
+        /// <param name="Engine">Moottori</param>
+        /// <param name="DTC">DTC</param>
+        /// <returns></returns>
+        public string description(string Model, string Engine, string DTC)
         {
-            throw new NotImplementedException();
+            string Description = DtcCodes.Single(d => d.Model == Model && d.Engine == Engine && d.DTC == DTC).Description;
+            return Description;
+        }
+
+        /// <summary>
+        /// Palauttaa DtcCodeObjectin missä arvot täsmää
+        /// </summary>
+        /// <param name="Model">Malli</param>
+        /// <param name="Engine">Moottori</param>
+        /// <param name="DTC">DTC</param>
+        /// <returns></returns>
+        public DtcCodeObject SingleCodeObject(string Model, string Engine, string DTC)
+        {
+            var DtcCode = DtcCodes.Single(d => d.Model == Model && d.Engine == Engine && d.DTC == DTC);
+            return DtcCode;
         }
     }
 }
