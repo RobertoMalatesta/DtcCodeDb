@@ -34,15 +34,8 @@
             this.lisääToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AutotGroupBox = new System.Windows.Forms.GroupBox();
             this.autotListBox = new System.Windows.Forms.ListBox();
             this.autotGridView = new System.Windows.Forms.DataGridView();
-            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturersListBox = new System.Windows.Forms.ListBox();
             this.modelsListbox = new System.Windows.Forms.ListBox();
             this.engineListbox = new System.Windows.Forms.ListBox();
@@ -53,8 +46,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textbox = new System.Windows.Forms.TextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.muokkaa = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.AutotGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carObjectBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -99,23 +98,12 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // AutotGroupBox
-            // 
-            this.AutotGroupBox.Controls.Add(this.autotListBox);
-            this.AutotGroupBox.Controls.Add(this.autotGridView);
-            this.AutotGroupBox.Location = new System.Drawing.Point(12, 297);
-            this.AutotGroupBox.Name = "AutotGroupBox";
-            this.AutotGroupBox.Size = new System.Drawing.Size(1119, 212);
-            this.AutotGroupBox.TabIndex = 1;
-            this.AutotGroupBox.TabStop = false;
-            this.AutotGroupBox.Text = "Autot";
-            // 
             // autotListBox
             // 
             this.autotListBox.FormattingEnabled = true;
-            this.autotListBox.Location = new System.Drawing.Point(850, 19);
+            this.autotListBox.Location = new System.Drawing.Point(897, 77);
             this.autotListBox.Name = "autotListBox";
-            this.autotListBox.Size = new System.Drawing.Size(263, 316);
+            this.autotListBox.Size = new System.Drawing.Size(133, 108);
             this.autotListBox.TabIndex = 1;
             this.autotListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.autotListBox_KeyDown);
             // 
@@ -131,44 +119,10 @@
             this.dTCDataGridViewTextBoxColumn,
             this.yearDataGridViewTextBoxColumn});
             this.autotGridView.DataSource = this.carObjectBindingSource;
-            this.autotGridView.Location = new System.Drawing.Point(3, 16);
+            this.autotGridView.Location = new System.Drawing.Point(728, 268);
             this.autotGridView.Name = "autotGridView";
-            this.autotGridView.Size = new System.Drawing.Size(841, 150);
+            this.autotGridView.Size = new System.Drawing.Size(403, 115);
             this.autotGridView.TabIndex = 0;
-            // 
-            // manufacturerDataGridViewTextBoxColumn
-            // 
-            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            // 
-            // engineDataGridViewTextBoxColumn
-            // 
-            this.engineDataGridViewTextBoxColumn.DataPropertyName = "Engine";
-            this.engineDataGridViewTextBoxColumn.HeaderText = "Engine";
-            this.engineDataGridViewTextBoxColumn.Name = "engineDataGridViewTextBoxColumn";
-            // 
-            // dTCDataGridViewTextBoxColumn
-            // 
-            this.dTCDataGridViewTextBoxColumn.DataPropertyName = "DTC";
-            this.dTCDataGridViewTextBoxColumn.HeaderText = "DTC";
-            this.dTCDataGridViewTextBoxColumn.Name = "dTCDataGridViewTextBoxColumn";
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            // 
-            // carObjectBindingSource
-            // 
-            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // manufacturersListBox
             // 
@@ -211,7 +165,7 @@
             this.dtcListbox.ItemHeight = 20;
             this.dtcListbox.Location = new System.Drawing.Point(479, 68);
             this.dtcListbox.Name = "dtcListbox";
-            this.dtcListbox.Size = new System.Drawing.Size(263, 184);
+            this.dtcListbox.Size = new System.Drawing.Size(339, 184);
             this.dtcListbox.TabIndex = 5;
             this.dtcListbox.SelectedIndexChanged += new System.EventHandler(this.dtcListbox_SelectedIndexChanged);
             // 
@@ -257,28 +211,78 @@
             this.textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carObjectBindingSource, "Description", true));
             this.textbox.Enabled = false;
             this.textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textbox.Location = new System.Drawing.Point(749, 67);
+            this.textbox.Location = new System.Drawing.Point(15, 284);
             this.textbox.Multiline = true;
             this.textbox.Name = "textbox";
             this.textbox.ReadOnly = true;
-            this.textbox.Size = new System.Drawing.Size(376, 184);
+            this.textbox.Size = new System.Drawing.Size(457, 225);
             this.textbox.TabIndex = 7;
+            this.textbox.Click += new System.EventHandler(this.muokkaa_Click);
+            this.textbox.ReadOnlyChanged += new System.EventHandler(this.muokkaa_Click);
+            this.textbox.EnabledChanged += new System.EventHandler(this.muokkaa_Click);
             // 
             // DescriptionLabel
             // 
             this.DescriptionLabel.AutoSize = true;
-            this.DescriptionLabel.Location = new System.Drawing.Point(748, 52);
+            this.DescriptionLabel.Location = new System.Drawing.Point(15, 268);
             this.DescriptionLabel.Name = "DescriptionLabel";
             this.DescriptionLabel.Size = new System.Drawing.Size(63, 13);
             this.DescriptionLabel.TabIndex = 8;
             this.DescriptionLabel.Text = "Description:";
+            this.DescriptionLabel.Click += new System.EventHandler(this.DescriptionLabel_Click);
+            // 
+            // carObjectBindingSource
+            // 
+            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            // 
+            // engineDataGridViewTextBoxColumn
+            // 
+            this.engineDataGridViewTextBoxColumn.DataPropertyName = "Engine";
+            this.engineDataGridViewTextBoxColumn.HeaderText = "Engine";
+            this.engineDataGridViewTextBoxColumn.Name = "engineDataGridViewTextBoxColumn";
+            // 
+            // dTCDataGridViewTextBoxColumn
+            // 
+            this.dTCDataGridViewTextBoxColumn.DataPropertyName = "DTC";
+            this.dTCDataGridViewTextBoxColumn.HeaderText = "DTC";
+            this.dTCDataGridViewTextBoxColumn.Name = "dTCDataGridViewTextBoxColumn";
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            // 
+            // muokkaa
+            // 
+            this.muokkaa.Location = new System.Drawing.Point(518, 485);
+            this.muokkaa.Name = "muokkaa";
+            this.muokkaa.Size = new System.Drawing.Size(75, 23);
+            this.muokkaa.TabIndex = 9;
+            this.muokkaa.Text = "Muokkaa";
+            this.muokkaa.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 521);
+            this.ClientSize = new System.Drawing.Size(1143, 561);
+            this.Controls.Add(this.muokkaa);
+            this.Controls.Add(this.autotListBox);
             this.Controls.Add(this.DescriptionLabel);
+            this.Controls.Add(this.autotGridView);
             this.Controls.Add(this.textbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -288,14 +292,12 @@
             this.Controls.Add(this.engineListbox);
             this.Controls.Add(this.modelsListbox);
             this.Controls.Add(this.manufacturersListBox);
-            this.Controls.Add(this.AutotGroupBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "Vika Pankki";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.AutotGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carObjectBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -309,7 +311,6 @@
         private System.Windows.Forms.ToolStripMenuItem tiedostotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lisääToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.GroupBox AutotGroupBox;
         private System.Windows.Forms.DataGridView autotGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
@@ -329,5 +330,6 @@
         private System.Windows.Forms.ToolStripMenuItem muokkaaToolStripMenuItem;
         private System.Windows.Forms.TextBox textbox;
         private System.Windows.Forms.Label DescriptionLabel;
+        private System.Windows.Forms.Button muokkaa;
     }
 }

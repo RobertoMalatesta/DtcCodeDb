@@ -122,5 +122,15 @@ namespace Database
                 carObjectBindingSource.DataSource = AutotRepository.SingleCodeObject(Model, Engine, Dtc);
             }
         }
+
+        private void DescriptionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void muokkaa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
