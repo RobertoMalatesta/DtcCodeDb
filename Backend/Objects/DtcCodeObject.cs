@@ -11,7 +11,7 @@ namespace Backend.Objects
         public string DTC { get; set; } // DTC
         public string Description { get; set; } // Kuvaus
         public int Year { get; set; } // Vuosimalli
-
+        public DateTime AddedTime { get; set; }
         public ObservableCollection<Document> Documents { get; set; } // Documents
     }
 }

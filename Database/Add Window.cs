@@ -38,6 +38,7 @@ namespace Database
                 DTC = DtcTextBox.Text, 
                 Manufacturer = ManufacturerTextBox.Text,
                 Description = DescriptionTextBox.Text,
+                AddedTime = DateTime.Now
             };
 
             DtcRepository.DtcCodes.Add(uusiauto);
