@@ -32,7 +32,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tiedostotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lisääToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autotListBox = new System.Windows.Forms.ListBox();
             this.autotGridView = new System.Windows.Forms.DataGridView();
@@ -46,13 +45,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textbox = new System.Windows.Forms.TextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.muokkaa = new System.Windows.Forms.Button();
+            this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carObjectBindingSource)).BeginInit();
@@ -64,7 +62,7 @@
             this.tiedostotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1143, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1156, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,7 +70,6 @@
             // 
             this.tiedostotToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lisääToolStripMenuItem,
-            this.muokkaaToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.tiedostotToolStripMenuItem.Name = "tiedostotToolStripMenuItem";
             this.tiedostotToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
@@ -81,20 +78,14 @@
             // lisääToolStripMenuItem
             // 
             this.lisääToolStripMenuItem.Name = "lisääToolStripMenuItem";
-            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lisääToolStripMenuItem.Text = "Lisää";
             this.lisääToolStripMenuItem.Click += new System.EventHandler(this.lisääToolStripMenuItem_Click);
-            // 
-            // muokkaaToolStripMenuItem
-            // 
-            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
-            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -231,10 +222,6 @@
             this.DescriptionLabel.Text = "Description:";
             this.DescriptionLabel.Click += new System.EventHandler(this.DescriptionLabel_Click);
             // 
-            // carObjectBindingSource
-            // 
-            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
-            // 
             // manufacturerDataGridViewTextBoxColumn
             // 
             this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
@@ -265,21 +252,15 @@
             this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
             this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
             // 
-            // muokkaa
+            // carObjectBindingSource
             // 
-            this.muokkaa.Location = new System.Drawing.Point(518, 485);
-            this.muokkaa.Name = "muokkaa";
-            this.muokkaa.Size = new System.Drawing.Size(75, 23);
-            this.muokkaa.TabIndex = 9;
-            this.muokkaa.Text = "Muokkaa";
-            this.muokkaa.UseVisualStyleBackColor = true;
+            this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 561);
-            this.Controls.Add(this.muokkaa);
+            this.ClientSize = new System.Drawing.Size(1156, 556);
             this.Controls.Add(this.autotListBox);
             this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.autotGridView);
@@ -327,9 +308,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem muokkaaToolStripMenuItem;
         private System.Windows.Forms.TextBox textbox;
         private System.Windows.Forms.Label DescriptionLabel;
-        private System.Windows.Forms.Button muokkaa;
     }
 }
