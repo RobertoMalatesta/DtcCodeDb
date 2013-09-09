@@ -110,7 +110,7 @@
             this.dTCDataGridViewTextBoxColumn,
             this.yearDataGridViewTextBoxColumn});
             this.autotGridView.DataSource = this.carObjectBindingSource;
-            this.autotGridView.Location = new System.Drawing.Point(728, 268);
+            this.autotGridView.Location = new System.Drawing.Point(824, 191);
             this.autotGridView.Name = "autotGridView";
             this.autotGridView.Size = new System.Drawing.Size(403, 115);
             this.autotGridView.TabIndex = 0;
