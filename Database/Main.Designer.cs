@@ -43,8 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textbox = new System.Windows.Forms.TextBox();
-            this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.userControl11 = new Database.UserControl1();
             this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.engineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,14 +77,14 @@
             // lisääToolStripMenuItem
             // 
             this.lisääToolStripMenuItem.Name = "lisääToolStripMenuItem";
-            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.lisääToolStripMenuItem.Text = "Lisää";
             this.lisääToolStripMenuItem.Click += new System.EventHandler(this.lisääToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -192,35 +191,16 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(476, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "DTC :";
+            this.label4.Text = "Vika:";
             // 
-            // textbox
+            // userControl11
             // 
-            this.textbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carObjectBindingSource, "Description", true));
-            this.textbox.Enabled = false;
-            this.textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textbox.Location = new System.Drawing.Point(15, 284);
-            this.textbox.Multiline = true;
-            this.textbox.Name = "textbox";
-            this.textbox.ReadOnly = true;
-            this.textbox.Size = new System.Drawing.Size(457, 225);
-            this.textbox.TabIndex = 7;
-            this.textbox.Click += new System.EventHandler(this.muokkaa_Click);
-            this.textbox.ReadOnlyChanged += new System.EventHandler(this.muokkaa_Click);
-            this.textbox.EnabledChanged += new System.EventHandler(this.muokkaa_Click);
-            // 
-            // DescriptionLabel
-            // 
-            this.DescriptionLabel.AutoSize = true;
-            this.DescriptionLabel.Location = new System.Drawing.Point(15, 268);
-            this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(63, 13);
-            this.DescriptionLabel.TabIndex = 8;
-            this.DescriptionLabel.Text = "Description:";
-            this.DescriptionLabel.Click += new System.EventHandler(this.DescriptionLabel_Click);
+            this.userControl11.Location = new System.Drawing.Point(12, 257);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(806, 346);
+            this.userControl11.TabIndex = 9;
             // 
             // manufacturerDataGridViewTextBoxColumn
             // 
@@ -260,11 +240,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 556);
+            this.ClientSize = new System.Drawing.Size(1156, 626);
+            this.Controls.Add(this.userControl11);
             this.Controls.Add(this.autotListBox);
-            this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.autotGridView);
-            this.Controls.Add(this.textbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -308,7 +287,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textbox;
-        private System.Windows.Forms.Label DescriptionLabel;
+        private UserControl1 userControl11;
     }
 }

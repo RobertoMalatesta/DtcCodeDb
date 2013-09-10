@@ -75,7 +75,7 @@ namespace Backend.XmlTools
         /// <returns></returns>
         static bool FileCheck(string file)
         {
-            if (!File.Exists(file)) // Auton lisäys aiheuttaa häriöö ja vika ilmeisesti tässä?
+            if (!File.Exists(file))
                 try
                 {
                     GenerateNewDtcCodes();
