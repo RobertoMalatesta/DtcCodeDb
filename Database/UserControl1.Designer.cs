@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DescripTxtbox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.decriptionLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // DescripTxtbox
+            // decriptionLabel
             // 
-            this.DescripTxtbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DescripTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescripTxtbox.Location = new System.Drawing.Point(8, 27);
-            this.DescripTxtbox.Multiline = true;
-            this.DescripTxtbox.Name = "DescripTxtbox";
-            this.DescripTxtbox.ReadOnly = true;
-            this.DescripTxtbox.Size = new System.Drawing.Size(492, 252);
-            this.DescripTxtbox.TabIndex = 0;
+            this.decriptionLabel.AutoSize = true;
+            this.decriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decriptionLabel.Location = new System.Drawing.Point(0, 0);
+            this.decriptionLabel.Name = "decriptionLabel";
+            this.decriptionLabel.Size = new System.Drawing.Size(89, 20);
+            this.decriptionLabel.TabIndex = 0;
+            this.decriptionLabel.Text = "Description";
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Description";
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(4, 24);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(403, 260);
+            this.textBox1.TabIndex = 1;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.DescripTxtbox);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.decriptionLabel);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1046, 403);
+            this.Size = new System.Drawing.Size(634, 376);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,7 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox DescripTxtbox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label decriptionLabel;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -142,7 +142,7 @@ namespace Backend.Repositories
         /// <returns></returns>
         public DtcCodeObject SingleCodeObject(string Model, string Engine, string DTC)
         {
-            var DtcCode = DtcCodes.Single(d => d.Model == Model && d.Engine == Engine && d.DTC == DTC);
+            var DtcCode = DtcCodes.Single(d => d.Model == Model && d.Engine == Engine && d.DTC == DTC); // Ottaa häikkää kun valitsee Fiat:in valmistajan luettelosta
             return DtcCode;
         }
     }
