@@ -119,7 +119,14 @@ namespace Database
                 // textbox.Text = AutotRepository.description(Model, Engine, Dtc);
 
                 // Pidemmässä juoksussa parempi koska tätä voidaan hyödyntää vielä enemmän myöhemmin :
-                carObjectBindingSource.DataSource = AutotRepository.SingleCodeObject(Model, Engine, Dtc);
+                DtcCodeObject SelectedDtc = AutotRepository.SingleCodeObject(Model, Engine, Dtc);
+                
+                // Luodaan uusi UserControl tolla dtc avulla
+                var usercontrol = new UserControl1(SelectedDtc);
+
+                // Tyhjennetään paneeli ja lisätään uusi usercontrol paneeliin
+                resultPanel.Controls.Clear();
+                resultPanel.Controls.Add(usercontrol);           
             }
         }
 
