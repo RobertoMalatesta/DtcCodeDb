@@ -147,7 +147,7 @@ namespace Database
 
         private void muokkaaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            custom secondForm = new custom();//Linkkaa tämäm custom ikkunaan
+            Form1 secondForm = new Form1();
             secondForm.Show();
         }
     }
