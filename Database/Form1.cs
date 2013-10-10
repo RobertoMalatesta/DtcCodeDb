@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Database
 {
-    public partial class Form1 : Form
+    public partial class muokkaa : Form
     {
-        public Form1()
+        public muokkaa()
         {
             InitializeComponent();
         }
