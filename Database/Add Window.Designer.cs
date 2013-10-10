@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.saveButton = new System.Windows.Forms.Button();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.ManufacturerTextBox = new System.Windows.Forms.TextBox();
@@ -39,6 +40,8 @@
             this.DtcTextBox = new System.Windows.Forms.TextBox();
             this.DTC = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Importbutton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -159,11 +162,28 @@
             this.splitContainer1.SplitterDistance = 92;
             this.splitContainer1.TabIndex = 12;
             // 
+            // Importbutton
+            // 
+            this.Importbutton.Location = new System.Drawing.Point(164, 197);
+            this.Importbutton.Name = "Importbutton";
+            this.Importbutton.Size = new System.Drawing.Size(75, 23);
+            this.Importbutton.TabIndex = 13;
+            this.Importbutton.Text = "Import";
+            this.Importbutton.UseVisualStyleBackColor = true;
+            this.Importbutton.Click += new System.EventHandler(this.Importbutton_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 280);
+            this.Controls.Add(this.Importbutton);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.saveButton);
@@ -194,5 +214,7 @@
         private System.Windows.Forms.TextBox DtcTextBox;
         private System.Windows.Forms.Label DTC;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button Importbutton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
