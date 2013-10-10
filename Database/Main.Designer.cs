@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.resultPanel = new System.Windows.Forms.Panel();
+            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carObjectBindingSource)).BeginInit();
@@ -69,7 +70,8 @@
             // 
             this.tiedostotToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lisääToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.muokkaaToolStripMenuItem});
             this.tiedostotToolStripMenuItem.Name = "tiedostotToolStripMenuItem";
             this.tiedostotToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.tiedostotToolStripMenuItem.Text = "Tiedostot";
@@ -77,14 +79,14 @@
             // lisääToolStripMenuItem
             // 
             this.lisääToolStripMenuItem.Name = "lisääToolStripMenuItem";
-            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.lisääToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lisääToolStripMenuItem.Text = "Lisää";
             this.lisääToolStripMenuItem.Click += new System.EventHandler(this.lisääToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -235,6 +237,14 @@
             this.resultPanel.Name = "resultPanel";
             this.resultPanel.Size = new System.Drawing.Size(800, 335);
             this.resultPanel.TabIndex = 7;
+            this.resultPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.resultPanel_Paint);
+            // 
+            // muokkaaToolStripMenuItem
+            // 
+            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
+            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
+            this.muokkaaToolStripMenuItem.Click += new System.EventHandler(this.muokkaaToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -288,5 +298,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel resultPanel;
+        private System.Windows.Forms.ToolStripMenuItem muokkaaToolStripMenuItem;
     }
 }
