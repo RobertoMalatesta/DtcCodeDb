@@ -57,7 +57,7 @@
             this.tiedostotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1156, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -188,7 +188,7 @@
             // autotGridView
             // 
             this.autotGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.autotGridView.Location = new System.Drawing.Point(825, 67);
+            this.autotGridView.Location = new System.Drawing.Point(876, 67);
             this.autotGridView.Name = "autotGridView";
             this.autotGridView.Size = new System.Drawing.Size(240, 150);
             this.autotGridView.TabIndex = 8;
@@ -196,7 +196,7 @@
             // autotListBox
             // 
             this.autotListBox.FormattingEnabled = true;
-            this.autotListBox.Location = new System.Drawing.Point(837, 238);
+            this.autotListBox.Location = new System.Drawing.Point(876, 236);
             this.autotListBox.Name = "autotListBox";
             this.autotListBox.Size = new System.Drawing.Size(120, 95);
             this.autotListBox.TabIndex = 9;
@@ -205,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 626);
+            this.ClientSize = new System.Drawing.Size(829, 626);
             this.Controls.Add(this.autotListBox);
             this.Controls.Add(this.autotGridView);
             this.Controls.Add(this.resultPanel);
