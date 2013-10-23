@@ -37,9 +37,7 @@ namespace Database
             manufacturersListBox.DataSource = AutotRepository.Manufacturers;
 
             /// Alla olevat poistetaan jossain vaiheessa
-            autotListBox.DataSource = AutotRepository.DtcCodes;
-            autotListBox.DisplayMember = "Manufacturer";
-            autotGridView.DataSource = AutotRepository.DtcCodes;
+      
         }
 
         
@@ -56,7 +54,7 @@ namespace Database
         }
 
         // Väliaikainen autotlistbox Delete toiminto
-        private void autotListBox_KeyDown(object sender, KeyEventArgs e)
+       private void autotListBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
                 AutotRepository.DtcCodes.Remove(autotListBox.SelectedItem as DtcCodeObject);

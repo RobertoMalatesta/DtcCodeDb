@@ -16,5 +16,10 @@ namespace Database
         {
             InitializeComponent();
         }
+
+        private void autotGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

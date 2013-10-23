@@ -33,6 +33,7 @@
             this.tiedostotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lisääToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manufacturersListBox = new System.Windows.Forms.ListBox();
             this.modelsListbox = new System.Windows.Forms.ListBox();
             this.engineListbox = new System.Windows.Forms.ListBox();
@@ -42,10 +43,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.resultPanel = new System.Windows.Forms.Panel();
-            this.muokkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.autotGridView = new System.Windows.Forms.DataGridView();
+            this.autotListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.carObjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -81,6 +84,13 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // muokkaaToolStripMenuItem
+            // 
+            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
+            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
+            this.muokkaaToolStripMenuItem.Click += new System.EventHandler(this.muokkaaToolStripMenuItem_Click);
             // 
             // manufacturersListBox
             // 
@@ -171,22 +181,33 @@
             this.resultPanel.TabIndex = 7;
             this.resultPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.resultPanel_Paint);
             // 
-            // muokkaaToolStripMenuItem
-            // 
-            this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
-            this.muokkaaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.muokkaaToolStripMenuItem.Text = "Muokkaa";
-            this.muokkaaToolStripMenuItem.Click += new System.EventHandler(this.muokkaaToolStripMenuItem_Click);
-            // 
             // carObjectBindingSource
             // 
             this.carObjectBindingSource.DataSource = typeof(Backend.Objects.DtcCodeObject);
+            // 
+            // autotGridView
+            // 
+            this.autotGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.autotGridView.Location = new System.Drawing.Point(825, 67);
+            this.autotGridView.Name = "autotGridView";
+            this.autotGridView.Size = new System.Drawing.Size(240, 150);
+            this.autotGridView.TabIndex = 8;
+            // 
+            // autotListBox
+            // 
+            this.autotListBox.FormattingEnabled = true;
+            this.autotListBox.Location = new System.Drawing.Point(837, 238);
+            this.autotListBox.Name = "autotListBox";
+            this.autotListBox.Size = new System.Drawing.Size(120, 95);
+            this.autotListBox.TabIndex = 9;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1156, 626);
+            this.Controls.Add(this.autotListBox);
+            this.Controls.Add(this.autotGridView);
             this.Controls.Add(this.resultPanel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -203,6 +224,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.carObjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autotGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +247,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel resultPanel;
         private System.Windows.Forms.ToolStripMenuItem muokkaaToolStripMenuItem;
+        private System.Windows.Forms.DataGridView autotGridView;
+        private System.Windows.Forms.ListBox autotListBox;
     }
 }
