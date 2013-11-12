@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{272DD458-54A1-46D7-82C4-6A35CEA05391}"
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kristalli Pallo", "Database\Kristalli Pallo.csproj", "{272DD458-54A1-46D7-82C4-6A35CEA05391}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{BE6F2C80-F910-4AF3-A77E-C5449F8B3E3F}"
 EndProject

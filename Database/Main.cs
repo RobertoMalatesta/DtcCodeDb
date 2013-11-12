@@ -143,10 +143,6 @@ namespace Database
 
         }
 
-        private void muokkaaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            muokkaa secondForm = new muokkaa();
-            secondForm.Show();
-        }
+        
     }
 }
